@@ -8,8 +8,8 @@ import (
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
 
+	"server-api/internal/router"
 	"server-api/internal/runtime"
-	"server-api/internal/utils"
 )
 
 func main() {
@@ -33,7 +33,7 @@ func main() {
 		//r.Use(middleware.Recovery(true), middleware.Logger())
 	}
 
-	utils.RegisterHandlers(r)
+	router.RegisterHandlers(r)
 
 	// 使用本地文件上传, 需要静态文件服务
 	if conf.Upload.OssType == "local" {
